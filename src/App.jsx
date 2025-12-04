@@ -9,34 +9,42 @@ import Layout from "./components/layout/Layout";
 import Dashboard from "./pages/Dashboard";
 import TaskPage from "./pages/TaskPage";
 import ReportPage from "./pages/ReportPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import NewProjectPage from "./pages/NewProjectPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
+import Productivity from "./pages/Productivity";
+import EmployeeProductivityPage from "./pages/EmployeeProductivityPage";
+import SettingsPage from "./pages/SettingsPage";
+import NotificationsPage from "./pages/NotificationsPage";
+import DashboardWorkDetails from "./pages/DashboardWorkDetails";
 
+
+const App = () =>{
 const router = createBrowserRouter([
   {
-    path: "/auth",
+    path: "/",
     errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <SignupPage /> },    // /auth
-      { path: "login", element: <LoginPage /> },   // /auth/login
-    ],
-  },
-
-  {
-    path: "/",                 // <---- Layout route
     element: <Layout />,       // sidebar + navbar fixed
-    errorElement: <ErrorPage />,
-
     children: [
-      { index: true, element: <Dashboard /> },   // /
-      { path: "dashboard", element: "" }, 
+      { path: "dashboard", element:<Dashboard /> },  
+      {path:"workersdetail",element:<DashboardWorkDetails/>},
       {path: "tasks", element: <TaskPage/>},
-      {path: "report", element: <ReportPage/>}
-
-
+      {path:"projects",element:<ProjectsPage/>},
+      {path:"newproject",element:<NewProjectPage/>},
+      {path:"projectdetail",element:<ProjectDetailPage/>},
+      {path:"productivity",element:<Productivity/>},
+      {path:"employeeproductivity",element:<EmployeeProductivityPage/>},
+      {path: "report", element: <ReportPage/>},
+      {path: "settings", element: <SettingsPage/>},
+      {path:"notifications",element:<NotificationsPage/>}  
     ],
+     
   },
-
+ { index:true, element: <SignupPage /> },    // /auth
+      { path: "login", element: <LoginPage /> }, 
   
 ]);
 
-const App = () => <RouterProvider router={router} />;
+ return <RouterProvider router={router} />;
+}
 export default App;

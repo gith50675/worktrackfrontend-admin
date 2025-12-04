@@ -19,6 +19,7 @@ nav {
   gap: 10px;
 }
 
+
 .tron-logo {
   width: 40px;
   height: 40px;
@@ -65,7 +66,12 @@ input {
 }
 
 .notification-text {
-  font-size: large;
+  font-style: inter;
+  font-size: 15px;
+  font-weight: 400 ;
+  color: black;
+  
+
 }
 
 .profile-container {
@@ -105,4 +111,9 @@ input {
 .logout {
   color: red;
   font-weight: 600;
+}
+.setting-navlink{
+  display: flex;
+  text-decoration: none;
+  align-items: center;
 }
