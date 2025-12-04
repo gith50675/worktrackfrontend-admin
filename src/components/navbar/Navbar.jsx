@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Navbar.css"
 import { CiSearch } from 'react-icons/ci'
 import { IoMdNotificationsOutline } from 'react-icons/io'
+import { NavLink } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -19,8 +20,11 @@ const Navbar = () => {
                 </form>
             </div>
             <div className='notification-box'>
-                <IoMdNotificationsOutline className='notification-icon' />
-                <p className='notification-text'>notifications</p>
+                <NavLink to="/notifications" className={({ isActive }) => `menu-box ${isActive ? "active" : ""}`}>
+                    <IoMdNotificationsOutline className='notification-icon' /> 
+                    <p className='notification-text'>notifications</p>
+                </NavLink>
+                
                      <div className="profile-container">
                 <img
                     src="https://i.pravatar.cc/40"
@@ -38,7 +42,7 @@ const Navbar = () => {
       )}
     </div>
             </div>
-            <div className="hell">hello hai how are you</div>
+           
 
             
 

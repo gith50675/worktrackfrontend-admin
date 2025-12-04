@@ -83,10 +83,12 @@
 .sidebar-logout {
   padding: 20px;
   border-top: 1px solid #f0f0f0;
+  
 }
 
 .menu-box.logout {
   margin-bottom: 0;
+
 }
 
 .menu-box.logout:hover {
