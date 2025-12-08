@@ -1,35 +1,28 @@
-nav {
+.navbar {
   display: flex;
   justify-content: space-between;
-  padding: 0 16px;
-  /* Reduced padding, using horizontal only */
-  background-color: #FAF4FC;
   align-items: center;
-  text-align: center;
+  padding: 0 24px;
+  background-color: #faf4fc;
   width: 100%;
   height: 58px;
-  /* matches --navbar-height */
   position: fixed;
   top: 0;
   left: 0;
   z-index: 2000;
-  /* stays above sidebar */
   box-sizing: border-box;
-  /* Ensure padding doesn't affect width */
 }
 
-.left-nav {
+.logo-box {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
-
 
 .tron-logo {
   width: 40px;
   height: 40px;
   margin-left: 10px;
-  /* Reduced margin */
 }
 
 .tron-logo2 {
@@ -37,22 +30,20 @@ nav {
   height: 40px;
 }
 
+/* Search */
 .search-box {
   display: flex;
-  background-color: white;
+  align-items: center;
+  background-color: #ffffff;
   border-radius: 20px;
-  max-width: 400px;
-  /* Limit max width */
-  width: 100%;
-  /* Allow shrinking */
-  flex: 1;
-  /* Allow taking available space */
-  margin: 0 10px;
-  /* spacing */
   height: 35px;
   padding: 7px 10px;
   gap: 5px;
-  align-items: center;
+  width: 500px;
+  max-width: 40vw;
+  min-width: 220px;
+  margin: 0 10px;
+  flex: 1;
 }
 
 .search-icon {
@@ -60,33 +51,46 @@ nav {
   width: 25px;
 }
 
-input {
+.search-input {
   border: none;
   outline: none;
   font-size: 16px;
   width: 100%;
+  background: transparent;
 }
 
+/* Right side */
 .notification-box {
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 15px;
+}
+
+.notification-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.notification-link.active .notification-text {
+  font-weight: 600;
 }
 
 .notification-icon {
-  height: 30px;
-  width: 25px;
+  height: 24px;
+  width: 24px;
 }
 
 .notification-text {
-  font-style: inter;
+  font-family: inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: black;
-
-
 }
 
+/* Profile dropdown */
 .profile-container {
   position: relative;
   display: inline-block;
@@ -109,6 +113,7 @@ input {
   border-radius: 5px;
   padding: 8px 0;
   text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .dropdown-box p {
@@ -135,7 +140,6 @@ input {
 /* Hamburger Icon */
 .hamburger-icon {
   display: none;
-  /* Hidden by default on desktop */
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -144,25 +148,21 @@ input {
 }
 
 /* Show hamburger on mobile/tablet */
-/* Show hamburger on mobile/tablet */
 @media (max-width: 907px) {
   .hamburger-icon {
     display: block;
   }
 
   .search-box {
-    /* On very small screens, we might want to hide search or make it very small */
     width: auto;
   }
 
   .notification-text {
     display: none;
-    /* Hide text on mobile to save space */
   }
 
   .tron-logo2 {
     display: none;
-    /* Optionally hide the second text logo on very small screens to save space */
   }
 }
 
@@ -170,6 +170,5 @@ input {
 @media (max-width: 480px) {
   .search-box {
     display: none;
-    /* Hide search bar on very small mobile if needed, or replace with icon */
   }
 }

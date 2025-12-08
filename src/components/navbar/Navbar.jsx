@@ -4,13 +4,12 @@ import { CiSearch } from 'react-icons/ci'
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { NavLink } from 'react-router-dom'
 
-
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = ({ toggleSidebar }) => {
     const [open, setOpen] = useState(false);
     return (
-        <nav>
+        <nav className="navbar">
             <div className='logo-box'>
                 <RxHamburgerMenu className="hamburger-icon" onClick={toggleSidebar} />
                 <img className='tron-logo' src="tron...-02.png" alt="" />
@@ -23,7 +22,7 @@ const Navbar = ({ toggleSidebar }) => {
                 </form>
             </div>
             <div className='notification-box'>
-                <NavLink to="/notifications" className={({ isActive }) => `menu-box ${isActive ? "active" : ""}`}>
+                <NavLink to="/notifications" className={({ isActive }) => `notification-link ${isActive ? "active" : ""}`}>
                     <IoMdNotificationsOutline className='notification-icon' />
                     <p className='notification-text'>notifications</p>
                 </NavLink>
