@@ -44,7 +44,7 @@ const NewProject = () => {
                 Prority
                 </div>
                 <div className="project-attachment-link">
-                   <img src="Vector.svg" alt="" />
+                   <img src="link icon.svg" alt="" />
                 </div>
                 <div className="project-attachment-link">
                    <img src="link.svg" alt="" />

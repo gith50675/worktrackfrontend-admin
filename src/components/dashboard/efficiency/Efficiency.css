@@ -1,25 +1,69 @@
-.efficiency-activity-bar{
-    display: flex;
-    gap: 25px;
-    background-color: #FAF4FC   ;
-    height: 159px;
-    width:280px;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: space-between ;
-    padding: 0px 40px;
-    margin-top: 30px;
-    margin-left:30px;
+/* Wrapper for both small cards */
+.bar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 80px;
+  width: 100%;
+  box-sizing: border-box;
 }
-.name-percentage{
-    font-family: inter;
-    font-weight: 400px;
-    font-size: 20px;
-}
-.name-percentage span{
-    font-family: inter;
-    font-weight: 600px;
-    font-size: 30px;
-    font-style:semi bold;
 
+/* Single efficiency/activity card */
+.efficiency-activity-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  background-color: #faf4fc;
+  border-radius: 10px;
+  padding: 20px 24px;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  
+}
+
+.effici-activ-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.name-percentage {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.name-percentage span {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+/* TABLET & DOWN: let card stretch full width */
+@media (max-width: 920px) {
+  .bar {
+    align-items: stretch;
+  }
+
+  .efficiency-activity-bar {
+    max-width: 100%;
+  }
+}
+
+/* MOBILE: slightly smaller text/padding */
+@media (max-width: 600px) {
+  .efficiency-activity-bar {
+    padding: 16px 18px;
+  }
+
+  .name-percentage {
+    font-size: 16px;
+  }
+
+  .name-percentage span {
+    font-size: 24px;
+  }
 }

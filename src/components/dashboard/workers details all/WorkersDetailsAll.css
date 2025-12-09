@@ -6,9 +6,9 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-
+/* top bar */
 .wokers-details-all-title-box {
-    width: 100%;
+  width: 100%;
   height: 55px;
   margin-top: 35px;
   background-color: #faf4fc;
@@ -16,19 +16,16 @@
   align-items: center;
   gap: 20px;
   padding: 0 30px;
-    font-family:inter;
-    font-weight:500px;
-    font-style:medium;
-    font-size: 20px;
-    justify-content: space-between;
-
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  justify-content: space-between;
 }
 
 .workers-detail-left {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding-left: 10px;
 }
 
 .working-details {
@@ -45,7 +42,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-right: 30px;
 }
 
 .worker-detail-status {
@@ -59,15 +55,19 @@
   font-weight: 500;
 }
 
+/* table wrapper */
 .workers-details-tables {
   margin-top: 20px;
+  overflow-x: auto;              /* horizontal scroll on small screens */
 }
 
+/* table */
 .dashboard-table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 8px; 
+  border-spacing: 0 8px;
   background: transparent;
+  min-width: 720px;              /* so columns keep shape on small screens */
 }
 
 .dashboard-header-row {
@@ -77,11 +77,11 @@
 .dashboard-th {
   text-align: left;
   padding: 14px 20px;
-  font-size: 18.65px;
-  font-family: inter;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
   font-weight: 500;
-  font-style: medium;
   color: black;
+  white-space: nowrap;
 }
 
 .dashboard-tr {
@@ -91,13 +91,14 @@
 
 .dashboard-td {
   padding: 14px 20px;
-  font-weight: 400px;
-  font-style: inter;
-  font-size: 16.46px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
   border-top: 1px solid #f3f3f3;
   border-bottom: 1px solid #f3f3f3;
 }
 
+/* rounded corners for first & last row */
 .dashboard-tr:first-child .dashboard-td:first-child {
   border-top-left-radius: 12px;
 }
@@ -111,6 +112,7 @@
   border-bottom-right-radius: 12px;
 }
 
+/* user cell */
 .user-cell {
   display: flex;
   align-items: center;
@@ -133,7 +135,7 @@
   font-weight: 500;
 }
 
-
+/* pills */
 .status-pill,
 .priority-pill {
   display: inline-flex;
@@ -141,9 +143,9 @@
   justify-content: center;
   padding: 4px 12px;
   border-radius: 999px;
-  font-style: inter;
-  font-size: 16.46px;
-  font-weight: 400px;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
   text-transform: capitalize;
 }
 
@@ -180,4 +182,75 @@
 .priority-pill.low {
   background: rgba(96, 165, 250, 0.18);
   color: #1d4ed8;
+}
+
+/* ================= TABLET (<= 920px) ================= */
+@media (max-width: 920px) {
+  .workers-details-all-container {
+    padding: 16px;
+  }
+
+  .wokers-details-all-title-box {
+    margin-top: 24px;
+    padding: 0 16px;
+  }
+
+  .working-details {
+    font-size: 17px;
+  }
+
+  .dashboard-th {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .dashboard-td {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+
+  .status-pill,
+  .priority-pill {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+}
+
+/* ================= MOBILE (<= 600px) ================= */
+@media (max-width: 600px) {
+  .workers-details-all-container {
+    padding: 12px;
+  }
+
+  .wokers-details-all-title-box {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 8px 12px;
+  }
+
+  .workers-detail-left {
+    padding-left: 0;
+  }
+
+  .workers-details-right {
+    padding-right: 0;
+  }
+
+  .working-details {
+    font-size: 16px;
+  }
+
+  .date-and-status {
+    font-size: 13px;
+  }
+
+  .workers-details-tables {
+    margin-top: 16px;
+  }
+
+  .dashboard-table {
+    min-width: 640px;    /* still scroll, but slightly smaller */
+  }
 }

@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     element: <Layout />,       // sidebar + navbar fixed
     children: [
-      { path: "dashboard", element:<Dashboard /> },  
+      { index:true, element:<Dashboard /> },  
       {path:"workersdetail",element:<DashboardWorkDetails/>},
       {path: "tasks", element: <TaskPage/>},
       {path:"projects",element:<ProjectsPage/>},
@@ -49,8 +49,8 @@ const router = createBrowserRouter([
     ],
      
   },
- { index:true, element: <SignupPage /> },    // /auth
-      { path: "login", element: <LoginPage /> }, 
+      {path:"/signup",element:<SignupPage/>},
+      { path: "/login", element: <LoginPage /> }, 
   
 ]);
 

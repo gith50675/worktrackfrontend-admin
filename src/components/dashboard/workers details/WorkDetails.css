@@ -1,85 +1,184 @@
-.detail-head{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 40px;
-}
-.head-left-side{
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-.icon-at{
-    display: flex;
-    gap: 8px;
-}
-.icon-at p{
-    font-family: inter;
-    font-weight: 400px;
-    font-size: 20px;
-    
-}
-.viewall-head{
-    font-family: inter;
-    font-weight: 400px;
-    font-size: 15px;
-    color: #7F799A;
-
-}
-.head-right-side{
-    align-items: center;
-    display: flex;
-
-}
-.user-atwork-head{
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-    margin-right: 574px;
-    margin-left: 35px;
-}
-.user-work{
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 35px;
-
+.work-detail-container {
+  background: #fdf5ff;
+  border-radius: 12px;
+  padding: 16px 20px 20px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.user{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding-top: 7px;
-}
-.time-hour{
-    display: flex;
-    gap: 20px;
-    padding-top: 7px;
-    align-items: center;
-
-}
-.bar-container{
-     width: 500px;
-  height: 8px;
-  border-radius: 10px;
-  /* overflow: hidden; */
+.detail-head {
   display: flex;
-
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
-.bar-box{
-     height: 100%;
-  background: #9b5cff;  
-  border-radius: 10px;
+
+.head-left-side {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.icon-at {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.icon-at p {
+  font-family: inter, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.viewall-head {
+  font-family: inter, sans-serif;
+  font-size: 14px;
+  color: #7f799a;
+  cursor: pointer;
+}
+
+.head-right-side {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inter, sans-serif;
+  font-size: 14px;
+}
+
+.user-atwork-head {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0 6px;
+  padding: 0 4px;
+  font-family: inter, sans-serif;
+  font-size: 14px;
+}
+
+.user-head,
+.at-work-head {
+  font-weight: 500;
+}
+
+.user-work {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 4px;
+  gap: 20px;
+}
+
+.user-work + .user-work {
+  border-top: 1px solid rgba(155, 120, 255, 0.12);
+}
+
+.left-user {
+  flex: 0 0 auto;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user p {
+  font-family: inter, sans-serif;
+  font-size: 14px;
+}
+
+.right-atwork {
+  flex: 1 1 auto;
+}
+
+.time-hour {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.time-hour p {
+  font-family: inter, sans-serif;
+  font-size: 14px;
+}
+
+.bar-time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+}
+
+.bar-container {
+  flex: 1 1 auto;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #f3e3ff;                      /* light lilac */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.bar-box {
+  height: 100%;
+  background: linear-gradient(90deg, #e0b8ff, #9b5cff);
+  border-radius: 999px;
   transition: width 0.4s ease;
 }
-.bar-value{
-    font-family: inter;
-    font-weight: 400px;
-    font-size: 15px;
 
-
+.bar-value {
+  font-family: inter, sans-serif;
+  font-size: 13px;
+  white-space: nowrap;
 }
-.bar-time{
-    display: flex;
-    align-items: center;
-    gap: 5px;
+
+@media (max-width: 920px) {
+  .head-left-side {
+    gap: 16px;
+  }
+
+  .icon-at p {
+    font-size: 17px;
+  }
+
+  .user-work {
+    gap: 12px;
+  }
+
+  .time-hour {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .work-detail-container {
+    padding: 12px 12px 16px;
+  }
+
+  .detail-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .user-work {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right-atwork {
+    width: 100%;
+  }
+
+  .time-hour {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .bar-time {
+    width: 100%;
+  }
+
+  .bar-container {
+    width: 100%;
+  }
 }

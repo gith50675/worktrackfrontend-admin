@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Signup.css";
+import {Link} from "react-router-dom"
 
 const Signup = () => {
-  const[activeTab,setActiveTab]=useState("signup")
 
   
 
@@ -18,9 +18,10 @@ const Signup = () => {
         <div className="signup-right-section">
           <div className="signup-form-card">
             <div className="signup-login-and-signup">
-              <p className="active">Sign Up</p>
-              <p className="inactive">Login</p>
-            </div>
+            <p className="signupname">Sign Up</p>
+            <Link to="/login"><p className="inactive">Login</p></Link>
+          </div>
+
 
             <form>
               <label className="signup-label">Name</label>

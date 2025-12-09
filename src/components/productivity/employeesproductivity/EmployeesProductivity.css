@@ -10,26 +10,86 @@
     font-size: 15px;
 }
 
+.table-container{
+    text-align: center;
+    align-items: center;
+    margin:0px 30px;
+}
+
+.employees-table{
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    margin-top: 20px;
+}
+
+.employees-th{
+    column-span: 2;
+    text-align: left;
+    padding: 12px 16px;
+}
+
+/* row clickable */
+.employee-name-datas{
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.employee-name-datas:hover{
+    background-color: #faf5ff;
+}
+
+/* user cell */
 .profile-td{
+    display: flex;
     align-items: center;
     gap:25px;
     padding-top: 20px;
 }
-.table-container{
-    text-align: center;
+
+.img-span{
+    font-family: inter;
+    font-weight: 500;
+}
+
+/* ========== EFFICIENCY BAR (VIOLET) ========== */
+
+.efficiency-cell{
+    display: flex;
     align-items: center;
+    gap: 12px;
+    min-width: 220px;           /* gives space for long bar like Figma */
 }
 
-.employee-name-datas{
-    padding: 50px;
+.efficiency-bar-track{
+    flex: 1 1 auto;
+    height: 8px;
+    border-radius: 999px;
+    background: #f0defe;        /* light lilac remaining part */
+    overflow: hidden;
 }
-.employees-table{
-       width: 100%;
-  border-collapse: collapse;
-  background: #ffffff;
-  margin-top: 20px;
-}
-.employees-th{
-    column-span: 2;
 
+.efficiency-bar-fill{
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #c084fc, #9b5cff);  /* violet bar */
+    transition: width 0.3s ease;
+}
+
+.efficiency-text{
+    font-size: 13px;
+    color: #4b445a;
+    white-space: nowrap;        /* keep '8hr' on one line */
+}
+
+/* small responsive tweak */
+@media (max-width: 768px){
+    .efficiency-cell{
+        min-width: 150px;
+    }
+
+    .efficiency-bar-track{
+        max-width: 120px;
+    }
 }
