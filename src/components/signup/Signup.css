@@ -15,8 +15,11 @@
   display: flex;
   position: relative;
   align-items: center;
-  gap: 0;margin-left: 100px;
+  justify-content: center;   /* NEW: center the whole block */
+  gap: 0;
+  margin-left: 0;            /* CHANGED: remove hard left shift */
 }
+
 
 
 .signup-left-section {
@@ -37,12 +40,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 340px;      /* a bit taller so the logo can breathe */
 }
-.tron-logo {
-  width: 170px;
-  height: auto;
+
+
+.signup-logo-box .tron-logo {
+  width: 260px;       
+  height: 250px;
   object-fit: contain;
+  display: block;
 }
+
 
 
 .signup-right-section {
@@ -53,6 +61,7 @@
   margin-left: -180px;   
   z-index: 2;
   pointer-events: auto;
+  
 }
 
 
@@ -81,12 +90,12 @@
   color: #9b9b9b;
   cursor: pointer;
 }
-.signup-login-and-signup .active {
+.signup-login-and-signup .signupname {
   color: #44204d; 
   position: relative;
   font-weight: 600;
 }
-.signup-login-and-signup .active::after {
+.signup-login-and-signup .signupname::after {
   content: "";
   display: block;
   width: 40px;
@@ -95,6 +104,10 @@
   margin: 6px auto 0;
   border-radius: 3px;
 }
+.signup-login-and-signup a{
+  text-decoration: none;
+}
+
 
 .signup-label {
   display: block;
@@ -103,6 +116,7 @@
   color: #666;
   margin: 14px 0 6px 6px;
 }
+
 
 .signup-input {
   width: 100%;

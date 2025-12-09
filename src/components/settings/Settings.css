@@ -74,7 +74,7 @@
 
 .settings-left-form,
 .settings-right-form {
-  flex: 1 1 260px;
+  flex: 1 1 260px; 
   min-width: 0;
 }
 
@@ -223,7 +223,6 @@
   }
 }
 
-/* ========= Extra small phones (≤ 480px) ========= */
 
 @media screen and (max-width: 480px) {
   .settings-title {

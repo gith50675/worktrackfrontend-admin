@@ -1,58 +1,93 @@
-.recent-task-container{
-    width: 550px;
-    Height:326px;
-    background-color: #FAF4FC;
+.recent-task-container {
+  width: 100%;
+  max-width: 550px;
+  min-height: 326px;
+  background-color: #faf4fc;
+  border-radius: 12px;
+}
 
+/* header */
+.recent-title {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  margin-top: 25px;
 }
-.recent-title{
-    display:flex;
-    justify-content: space-between;
-    padding-left: 30px;
-    padding-right:30px;
-    padding-top: 10px;
-    margin-top:25px
-}
-.recent-tasks{
-    font-family:inter;
-    font-weight:500px;
-    font-style:medium;
-    font-size: 22px;
-}
-.tasks-details{
-    font-family:inter;
-    font-weight:400px;
-    font-size: 14px;
-    color: #808080;
-}
-hr{
-    margin-left: 15px;
-    margin-right: 15px;
-}
-.task-and-status{
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.task-status{
-    display: flex;
-    justify-content: space-between;
-     padding:10px;
-    
-}
-.productivity-task{
-    font-family:inter;
-    font-weight:500px;
-    font-style:medium;
-    font-size: 19.68px;
-    
 
+.recent-tasks {
+  font-family: inter;
+  font-weight: 500;
+  font-size: 22px;
 }
-.productivity-task-status{
-      font-family:inter;
-    font-weight:500px;
-    font-style:medium;
-    font-size: 19.68px;
-    background-color: #B981CB;
-    padding: 5px;
-   
 
+.tasks-details {
+  font-family: inter;
+  font-weight: 400;
+  font-size: 14px;
+  color: #808080;
+}
+
+/* divider only inside this card */
+.recent-task-container hr {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* list */
+.task-and-status {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.task-status {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.productivity-task {
+  font-family: inter;
+  font-weight: 500;
+  font-size: 19.68px;
+}
+
+.productivity-task-status {
+  font-family: inter;
+  font-weight: 500;
+  font-size: 19.68px;
+  background-color: #b981cb;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+  .recent-task-container {
+    max-width: 100%;
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .recent-title {
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-top: 16px;
+  }
+
+  .recent-task-container hr {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .task-status {
+    padding: 8px;
+  }
+
+  .productivity-task,
+  .productivity-task-status {
+    font-size: 17px;
+  }
 }

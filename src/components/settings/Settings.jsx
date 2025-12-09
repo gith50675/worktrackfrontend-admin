@@ -17,11 +17,11 @@ const Settings = () => {
                      <div className="settings-left-form">
                         <label className='settings-form-label' htmlFor="">First Name</label> <br />
                         <input className='settings-input' type="text" placeholder='john' />
-                        <label className='settings-form-label' htmlFor="">Email</label> <br />
+                        <label className='settings-form-label' htmlFor="">Lastname</label> <br />
                         <input className='settings-input' type="text"  placeholder='john@gmail.com'/>
                     </div>
                     <div className="settings-right-form">
-                        <label className='settings-form-label' htmlFor="">Last Name</label> <br />
+                        <label className='settings-form-label' htmlFor="">Email</label> <br />
                         <input className='settings-input' type="text" placeholder='christopher' />
                         <label className='settings-form-label' htmlFor="">Mobile Number</label> <br />
                         <input className='settings-input' type="text" placeholder='+91 6223232467' />
