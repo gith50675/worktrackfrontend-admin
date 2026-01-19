@@ -107,7 +107,7 @@ const TaskSummary = () => {
 
         <td>{task.due_date}</td>
 
-        <td className={`status ${task.status?.toLowerCase().replace(" ", "-")}`}>
+        <td className={`status ${task.status?.toLowerCase().replace(" ", "-")} `}>
           {task.status}
         </td>
 

@@ -99,7 +99,7 @@ const NewProject = () => {
 
       attachments.forEach(f => payload.append("attachments", f));
 
-      const res = await api.post("/admin_app/add_projects", payload);
+      const res = await api.post("/admin_app/add_projects/", payload);
       toast.success(res.data?.message || "Project Added Successfully");
       navigate("/projects");   // your project list route
 
@@ -171,8 +171,8 @@ const NewProject = () => {
             <option value="">Select User</option>
 
             {users.map(u => (
-              <option key={u.id} value={u.id}>
-                {u.first_name || u.email}
+              <option key={u.user_id} value={u.user_id}>
+              {u.user_name}
               </option>
             ))}
           </select>

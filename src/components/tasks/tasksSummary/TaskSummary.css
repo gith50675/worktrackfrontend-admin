@@ -95,8 +95,14 @@ tbody tr:hover {
 
 
 .status {
-  font-size: 13px;
-  font-weight: 400;
+  padding: 4px 10px;
+  margin-bottom: 33px;
+
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;     
+  display: inline-block;
+    
 }
 
 /* In Progress */
@@ -116,6 +122,11 @@ tbody tr:hover {
 
 /* Task Done */
 .status.task-done {
+  color: #2e7d32;
+
+}
+.status.completed {
+  background-color: #c3dfc4;
   color: #2e7d32;
 }
 

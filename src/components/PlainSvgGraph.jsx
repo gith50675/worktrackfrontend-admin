@@ -1,25 +1,23 @@
 // src/components/PlainSvgGraph.jsx
 import React, { useRef, useState, useMemo } from "react";
-import ReportGraphContainer from "../../ReportGraphContainer";
-
-const DATA = [10, 6, 12, 10, 8, 6, 12];
-const LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const LINE_COLOR = "#717FFE";
 const GRAD_TOP = "#E5B6F5";
 const GRAD_MID = "#D4B3FF";
 
-export default function ReportGraph({
-  data = DATA,
-  labels = LABELS,
+export default function PlainSvgGraph({
+  data = [],
+  labels = [],
   height = 320,
   padding = 50,
 }) {
   const svgRef = useRef(null);
   const [hoverIndex, setHoverIndex] = useState(null);
 
+  if (!data.length) return null;
+
   const min = 0;
-  const max = Math.max(...data, 12);
+  const max = Math.max(...data, 1);
   const count = data.length;
 
   const viewW = 1000;
@@ -29,15 +27,14 @@ export default function ReportGraph({
 
   const points = useMemo(() => {
     return data.map((v, i) => {
-      const x = padding + (i / (count - 1)) * innerW;
+      const x = padding + (i / (count - 1 || 1)) * innerW;
       const y =
-        padding + (1 - (v - min) / (max - min)) * innerH;
+        padding + (1 - (v - min) / (max - min || 1)) * innerH;
       return { x, y, v, label: labels[i] || "" };
     });
   }, [data, labels, count, padding, innerW, innerH, min, max]);
 
   function catmullRom2bezier(pts) {
-    if (!pts.length) return "";
     let d = `M ${pts[0].x},${pts[0].y}`;
     for (let i = 0; i < pts.length - 1; i++) {
       const p0 = pts[i - 1] || pts[i];
@@ -56,30 +53,21 @@ export default function ReportGraph({
   }
 
   const linePath = catmullRom2bezier(points);
-  const areaPath = `${linePath} L ${
-    points[points.length - 1].x
-  },${viewH - padding} L ${points[0].x},${
+  const areaPath = `${linePath} L ${points.at(-1).x},${
     viewH - padding
-  } Z`;
+  } L ${points[0].x},${viewH - padding} Z`;
 
-  const ySteps = [0, 2, 4, 6, 8, 10, 12];
+  const ySteps = Array.from({ length: 6 }, (_, i) =>
+    Math.round((max / 5) * i)
+  );
 
   return (
-    <div
-      style={{
-        position: "relative",
-        margin: "5%",
-        width: "100%",
-        maxWidth: 1000,
-      }}
-    >
-      <ReportGraphContainer />
+    <div style={{ width: "100%", maxWidth: 1000 }}>
       <svg
         ref={svgRef}
         viewBox={`0 0 ${viewW} ${viewH}`}
         width="100%"
         height={height}
-        style={{ display: "block" }}
       >
         <defs>
           <linearGradient id="purpleGrad" x1="0" y1="0" x2="0" y2="1">
@@ -89,7 +77,6 @@ export default function ReportGraph({
           </linearGradient>
         </defs>
 
-        {/* Y-axis grid */}
         {ySteps.map((val, i) => {
           const y = padding + (1 - val / max) * innerH;
           return (
@@ -104,20 +91,17 @@ export default function ReportGraph({
               <text
                 x={padding - 20}
                 y={y + 4}
-                fontSize="14"
+                fontSize="13"
                 textAnchor="end"
                 fill="#777"
               >
-                {val.toString().padStart(2, "0")}
+                {val}
               </text>
             </g>
           );
         })}
 
-        {/* Area */}
         <path d={areaPath} fill="url(#purpleGrad)" />
-
-        {/* Line */}
         <path
           d={linePath}
           fill="none"
@@ -126,21 +110,6 @@ export default function ReportGraph({
           strokeLinecap="round"
         />
 
-        {/* X labels */}
-        {points.map((p, i) => (
-          <text
-            key={i}
-            x={p.x}
-            y={viewH - padding + 25}
-            textAnchor="middle"
-            fontSize="16"
-            fill="#444"
-          >
-            {labels[i]}
-          </text>
-        ))}
-
-        {/* Points + Hover */}
         {points.map((p, i) => (
           <g
             key={i}
@@ -150,35 +119,21 @@ export default function ReportGraph({
             <circle
               cx={p.x}
               cy={p.y}
-              r={hoverIndex === i ? 9 : 6}
+              r={hoverIndex === i ? 8 : 5}
               fill="#fff"
               stroke={LINE_COLOR}
               strokeWidth={2}
-              style={{ transition: "r 0.2s ease" }}
             />
-
-            {/* Tooltip */}
             {hoverIndex === i && (
-              <g>
-                <rect
-                  x={p.x - 40}
-                  y={p.y - 45}
-                  width={80}
-                  height={30}
-                  rx={6}
-                  fill="#222"
-                  opacity={0.9}
-                />
-                <text
-                  x={p.x}
-                  y={p.y - 25}
-                  textAnchor="middle"
-                  fontSize="13"
-                  fill="#fff"
-                >
-                  {p.label}: {p.v}
-                </text>
-              </g>
+              <text
+                x={p.x}
+                y={p.y - 12}
+                textAnchor="middle"
+                fontSize="12"
+                fill="#333"
+              >
+                {p.label}: {p.v}
+              </text>
             )}
           </g>
         ))}
